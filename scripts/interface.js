@@ -13,20 +13,20 @@ function handleClick(event) {
     let square = event.target;
     let position = square.id;
 
-    handleMove(position)
+    if (HandleMove(position)) {
+
+        setTimeout(() => {
+            alert ("O Jogo Acabou - O Vencedor foi " + playerTime);
+
+        }, 10);
+        
+    };
     updateSquares();
 
 }
-
-function updateSquares(){
-    let square = document.querySelectorAll(".square");
-
-        square.forEach((square) => {
-            let position = square.id;
-            let symbols = board[position];
-
-            if(symbols != ''){
-                square.innerHTML = `<div class='${symbols}'></div>`
-            }
-        })
+  
+function updateSquares(position){
+    let square = document.getElementById(position.toString());
+    let symbols = board[position]; 
+    square.innerHTML = `<div class='${symbols}'></div>`
 }

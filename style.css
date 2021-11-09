@@ -17,7 +17,7 @@ h1{
 .o{
     position: relative;
 
-}
+} 
 .o:after{
     content: "\1F6E1";
     font-size: 70px;
