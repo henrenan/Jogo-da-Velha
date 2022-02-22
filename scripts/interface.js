@@ -1,32 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-        let square = document.querySelectorAll(".square");
+        let squares  = document.querySelectorAll(".squares");
 
-        square.forEach((square) => {
+        squares.forEach((square) => {
             square.addEventListener('click', handleClick);
         })
 
     })
 
 function handleClick(event) {
-    
-    let square = event.target;
+    console.log(event.target)
+
+    let square =  event.target;
     let position = square.id;
 
-    if (HandleMove(position)) {
-
-        setTimeout(() => {
-            alert ("O Jogo Acabou - O Vencedor foi " + playerTime);
-
-        }, 10);
-        
-    };
-    updateSquares();
-
+    handleMove(position)
+    updadeSquares();
 }
-  
-function updateSquares(position){
-    let square = document.getElementById(position.toString());
-    let symbols = board[position]; 
-    square.innerHTML = `<div class='${symbols}'></div>`
+
+function updadeSquares(){
+
+    let squares  = document.querySelectorAll(".square");
+
+        squares.forEach((square) => {
+            let position = square.id;
+            let symbol = board[position];
+
+           if (symbol != ''){
+               square.innerHTML =`<div class='${symbols}'></div>`
+           }
+        })
+
 }
