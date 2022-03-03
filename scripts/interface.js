@@ -14,10 +14,9 @@ function handleClick(event){
     let position = square.id;
 
     if (handleMove(position)){
-        updateSquares();
 
         setTimeout(()=> {
-            alert ("O jogo acabou");
+            alert ("O jogo acabou - O Vencedor foi " + playerTime);
         },10);
 
         
@@ -26,6 +25,13 @@ function handleClick(event){
 
 }
 
+function updateSquares(position) {
+    let square = document.getElementById(position.toString());
+    let symbol = board[position]
+    square.innerHTML = `<div class='${symbol}'></div>`
+}
+
+//utilizar para fazer o resetGame
 function updateSquares(){
 
     let squares = document.querySelectorAll(".square");
